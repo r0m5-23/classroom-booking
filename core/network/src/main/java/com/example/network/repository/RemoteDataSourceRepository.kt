@@ -1,10 +1,12 @@
 package com.example.network.repository
 
+import com.example.network.response.dtos.BuildingDto
 import com.example.network.response.dtos.ClassroomDto
 import com.example.network.response.dtos.EventDto
 
 interface RemoteDataSourceRepository {
 
+    suspend fun getBuildings(): List<BuildingDto>
     suspend fun getClassrooms(): List<ClassroomDto>
     suspend fun getClassroomById(id: Int? = null): ClassroomDto
     suspend fun getEventsByClassroomIdAndDateRange(
