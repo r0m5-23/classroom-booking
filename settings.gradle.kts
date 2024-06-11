@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Classroom Management"
 include(":app")
- 
+include(":core:network")
