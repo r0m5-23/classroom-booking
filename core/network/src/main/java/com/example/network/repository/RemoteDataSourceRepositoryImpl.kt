@@ -17,10 +17,6 @@ class RemoteDataSourceRepositoryImpl @Inject constructor(
         return bulletApi.getClassroomsActiveBasicInformation().data
     }
 
-    override suspend fun getClassroomById(id: Int?): ClassroomDto {
-        return bulletApi.getClassroomById(id = id).data
-    }
-
     override suspend fun getEventsByClassroomIdAndDateRange(
         startDate: String?,
         endDate: String?,

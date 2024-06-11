@@ -8,7 +8,6 @@ interface RemoteDataSourceRepository {
 
     suspend fun getBuildings(): List<BuildingDto>
     suspend fun getClassrooms(): List<ClassroomDto>
-    suspend fun getClassroomById(id: Int? = null): ClassroomDto
     suspend fun getEventsByClassroomIdAndDateRange(
         startDate: String? = null,
         endDate: String? = null,

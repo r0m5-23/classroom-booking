@@ -35,37 +35,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var rooms by remember {
-                mutableStateOf<List<ClassroomDto>?>(emptyList())
-            }
-
-            var room by remember {
-                mutableStateOf<ClassroomDto?>(null)
-            }
-
-            var events by remember {
-                mutableStateOf<List<EventDto>?>(emptyList())
-            }
-
-            var event by remember {
-                mutableStateOf<EventDto?>(null)
-            }
-
-            LaunchedEffect(key1 = Unit) {
-                var eventsIds = mutableListOf<Int>()
-
-                rooms = remoteDataSourceRepository.getClassrooms()
-                room = remoteDataSourceRepository.getClassroomById(179)
-                events = remoteDataSourceRepository.getEventsByClassroomIdAndDateRange("2024-06-06", "2024-06-07", room?.id)
-                events?.forEach {
-                    eventsIds.add(it.id!!)
-                }
-                event = remoteDataSourceRepository.getEventById(eventsIds.last())
-            }
-
             ClassroomManagementTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(rooms?.size, room?.name, events?.size, event?.module?.name, modifier = Modifier.padding(innerPadding))
+                    Greeting("Renato", modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -73,32 +45,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(rooms: Int?, roomName: String?, events: Int?, eventName: String?, modifier: Modifier = Modifier) {
-    if(roomName.isNullOrEmpty()){
-        Text(
-            text = "Hello Android!",
-            modifier = modifier,
-            fontSize = 34.sp,
-            fontWeight = FontWeight.Bold
-        )
-    } else {
-        Text(
-            text =  "Hello!\n" +
-                    "\nThere are $rooms active rooms.\n"+
-                    "\nThis is room $roomName!\n" +
-                    "\nI have $events events for the rest of the week.\n" +
-                    "\nMy last event of the week will be: $eventName.",
-            modifier = modifier,
-            fontSize = 34.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier,
+        fontSize = 34.sp,
+        fontWeight = FontWeight.Bold
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ClassroomManagementTheme {
-        Greeting(0, "Android", 0, "x")
+        Greeting("Renato")
     }
 }
