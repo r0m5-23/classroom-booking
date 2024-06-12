@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class ClassroomRepositoryImp @Inject constructor(
+class ClassroomRepositoryImpl @Inject constructor(
     private val classroomDAO: ClassroomDAO,
     private val remoteDataSourceRepository: RemoteDataSourceRepository
 ): ClassroomRepository {

@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,6 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
+import com.example.classroommanagement.presentation.features.classroomSelection.ClassroomSelectionViewModel
+import com.example.classroommanagement.presentation.navigation.SetupNavGraph
 import com.example.classroommanagement.ui.theme.ClassroomManagementTheme
 import com.example.network.repository.RemoteDataSourceRepository
 import com.example.network.response.dtos.ClassroomDto
@@ -35,29 +41,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ClassroomManagementTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting("Renato", modifier = Modifier.padding(innerPadding))
-                }
-            }
+            TestApp()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-        fontSize = 34.sp,
-        fontWeight = FontWeight.Bold
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
+fun TestApp() {
     ClassroomManagementTheme {
-        Greeting("Renato")
+        val navController = rememberNavController()
+        val classroomSelectionViewModel = hiltViewModel<ClassroomSelectionViewModel>()
+
+        Scaffold(modifier = Modifier.fillMaxSize()) {
+            SetupNavGraph(classroomSelectionViewModel = classroomSelectionViewModel, navController = navController, modifier = Modifier.padding(it))
+        }
     }
 }
