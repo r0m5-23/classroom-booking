@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Classroom Management"
+rootProject.name = "Classroom Booking"
 include(":app")
 include(":core:network")

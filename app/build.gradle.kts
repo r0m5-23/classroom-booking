@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.classroommanagement"
+    namespace = "com.example.classroombooking"
     compileSdk = 34
 
     defaultConfig {
