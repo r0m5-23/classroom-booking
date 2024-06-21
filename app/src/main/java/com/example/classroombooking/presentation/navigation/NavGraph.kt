@@ -8,9 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.classroombooking.presentation.features.classroomDetailsVisualization.ClassroomDetailsVisualizationScreen
-import com.example.classroombooking.presentation.features.classroomSelection.ClassroomSelectionScreen
-import com.example.classroombooking.presentation.features.classroomSelection.ClassroomSelectionViewModel
+import com.example.classroom_schedule.ClassroomScheduleScreen
+import com.example.classroom_selection.ClassroomSelectionScreen
+import com.example.classroom_selection.ClassroomSelectionViewModel
 
 @Composable
 fun SetupNavGraph(
@@ -27,9 +27,9 @@ fun SetupNavGraph(
         composable<Screen.ClassroomSelection> {
             ClassroomSelectionScreen(navController = navController, state = state, onEvent = classroomSelectionViewModel::onEvent)
         }
-        composable<Screen.ClassroomDetailsVisualization> { navBackStackEntry ->
-            val args = navBackStackEntry.toRoute<Screen.ClassroomDetailsVisualization>()
-            ClassroomDetailsVisualizationScreen(
+        composable<Screen.ClassroomSchedule> { navBackStackEntry ->
+            val args = navBackStackEntry.toRoute<Screen.ClassroomSchedule>()
+            ClassroomScheduleScreen(
                 classroomName = args.name
             )
         }

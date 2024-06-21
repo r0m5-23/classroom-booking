@@ -15,11 +15,6 @@ interface BulletApiServices {
     @GET("api/Classrooms/active/basicinformation")
     suspend fun getClassroomsActiveBasicInformation(): NetworkResponse<List<ClassroomDto>>
 
-    @GET("api/Classrooms/{id}")
-    suspend fun getClassroomById(
-        @Path("id") id: Int?
-    ): NetworkResponse<ClassroomDto>
-
     @GET("/api/Events/all/{startDate}/{endDate}/{classroomId}")
     suspend fun getEventsByClassroomIdAndDateRange(
         @Path("startDate") startDate: String?,

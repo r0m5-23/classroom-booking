@@ -7,7 +7,7 @@ sealed class Screen {
     object ClassroomSelection: Screen()
 
     @Serializable
-    data class ClassroomDetailsVisualization(
+    data class ClassroomSchedule(
         val name: String
     ): Screen()
 }

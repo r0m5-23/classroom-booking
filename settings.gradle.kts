@@ -22,3 +22,9 @@ dependencyResolutionManagement {
 rootProject.name = "Classroom Booking"
 include(":app")
 include(":core:network")
+include(":core:domain")
+include(":feature:classroom-selection")
+include(":core:ui")
+include(":core:database")
+include(":core:data")
+include(":feature:classroom-schedule")

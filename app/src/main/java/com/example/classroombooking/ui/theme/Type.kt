@@ -9,19 +9,6 @@ import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.sp
 import com.example.classroombooking.R
 
-val provider = GoogleFont.Provider(
-    providerAuthority = "com.google.android.gms.fonts",
-    providerPackage = "com.google.android.gms",
-    certificates = R.array.com_google_android_gms_fonts_certs
-)
-
-val fontName = GoogleFont("Roboto Flex")
-
-val fontFamily = FontFamily(
-    Font(googleFont = fontName, fontProvider = provider)
-)
-
-
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
@@ -47,32 +34,4 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     )
     */
-)
-
-val TitleStyle = TextStyle(
-    fontSize = 22.sp,
-    fontWeight = FontWeight(700),
-    letterSpacing = 0.5.sp,
-    fontFamily = fontFamily
-)
-
-val HeadingStyle = TextStyle(
-    fontSize = 24.sp,
-    fontWeight = FontWeight(600),
-    letterSpacing = 0.5.sp,
-    fontFamily = fontFamily
-)
-
-val SmallHeadingStyle = TextStyle(
-    fontSize = 14.sp,
-    fontWeight = FontWeight(500),
-    letterSpacing = 0.5.sp,
-    fontFamily = fontFamily
-)
-
-val LegendHeadingStyle = TextStyle(
-    fontSize = 10.sp,
-    fontWeight = FontWeight(600),
-    letterSpacing = 0.5.sp,
-    fontFamily = fontFamily
 )

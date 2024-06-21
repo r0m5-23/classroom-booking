@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.example.classroombooking.presentation.features.classroomSelection.ClassroomSelectionViewModel
+import com.example.classroom_selection.ClassroomSelectionViewModel
 import com.example.classroombooking.presentation.navigation.SetupNavGraph
 import com.example.classroombooking.ui.theme.ClassroomBookingTheme
 import com.example.network.repository.RemoteDataSourceRepository
@@ -20,9 +20,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var remoteDataSourceRepository: RemoteDataSourceRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
